@@ -1,0 +1,58 @@
+{% extends 'baseUser.html.twig' %}
+
+{% block title %}Blog{% endblock %}
+
+{% block body %}
+    <h1>Blog </h1>
+
+    <div class="container-fluid">
+
+    </div>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>
+                Titre
+            </th>
+            <th>
+                Contenu
+            </th>
+            <th>
+                Date de publication
+            </th>
+            <th>
+
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+
+
+        {% for blog in blogs %}
+            <tr>
+                    <td>
+                        {{ blog.title }}
+                    </td>
+                    <td>
+                        {{ blog.content[:100] }}
+                    </td>
+                    <td>
+                        {{ blog.publishedAt|date('Y-m-d H:i:s') }}
+                    </td>
+                    <td><a href="{{ path('detailUser',{'id': blog.id})}}" class="btn btn-primary"/> View Blog
+
+                    </td>
+
+
+                </tr>
+
+
+        {% endfor %}
+
+        </tbody>
+    </table>
+
+
+
+
+{% endblock body %}
